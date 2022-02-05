@@ -58,8 +58,8 @@ namespace Boletas.Module.Administrar.View.Matrimonios
 
         private void RecargarFechas()
         {
-            fecha1 = new DateTime(dateTimeMonth.Value.Year, dateTimeMonth.Value.Month, 1).ToShortDateString() + " 00:00:00";
-            fecha2 = new DateTime(dateTimeMonth.Value.Year, dateTimeMonth.Value.Month + 1, 1).AddDays(-1).ToShortDateString() + " 23:59:59";
+            fecha1 = new DateTime(dateTimeMonth.Value.Year, dateTimeMonth.Value.Month, 1).ToString("yyyy/MM/dd") + " 00:00:00";
+            fecha2 = new DateTime(dateTimeMonth.Value.Year, dateTimeMonth.Value.Month + 1, 1).AddDays(-1).ToString("yyyy/MM/dd") + " 23:59:59";
         }
 
         private void dataGridMatrimonios_CellContentClick(object sender, DataGridViewCellEventArgs e)

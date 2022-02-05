@@ -96,14 +96,13 @@ namespace Boletas.Module.Administrar.View.Bautizos
             Crear ventanaCrear = new Crear();
             ventanaCrear.StartPosition = FormStartPosition.CenterScreen;
             ventanaCrear.ShowDialog();
-            dataGridBautizos.Update();
 
-            /**
+            
             RecargarFechas();
 
             dataGridBautizos.DataSource = bd.SelectDataTable("Select id as Código, CONCAT(nombre,' ',apellidoPaterno,' ',apellidoMaterno) as Nombre, " +
                 "fechaBautismo as [Fecha de Bautismo], fechaNacimiento as [Fecha de Nacimiento], nombrePadre as [Nombre del Padre], nombreMadre as [Nombre de la Madre] from bautismos where fechaBautismo between '" + fecha1 + "' AND '" + fecha2 + "'");
-            */
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -115,14 +114,11 @@ namespace Boletas.Module.Administrar.View.Bautizos
 
                 ventanaEliminar.StartPosition = FormStartPosition.CenterScreen;
                 ventanaEliminar.ShowDialog();
-
-                /**
                 RecargarFechas();
 
                 dataGridBautizos.DataSource = bd.SelectDataTable("Select id as Código, CONCAT(nombre,' ',apellidoPaterno,' ',apellidoMaterno) as Nombre, " +
                     "fechaBautismo as [Fecha de Bautismo], fechaNacimiento as [Fecha de Nacimiento], nombrePadre as [Nombre del Padre], nombreMadre as [Nombre de la Madre] from bautismos where fechaBautismo between '" + fecha1 + "' AND '" + fecha2 + "'");
-                **/
-                dataGridBautizos.Update();
+                
                 limpiar();
             }
             else
@@ -140,13 +136,11 @@ namespace Boletas.Module.Administrar.View.Bautizos
 
                 ventanaConsultar.StartPosition = FormStartPosition.CenterScreen;
                 ventanaConsultar.ShowDialog();
-                dataGridBautizos.Update();
-                /***
                 RecargarFechas();
 
                 dataGridBautizos.DataSource = bd.SelectDataTable("Select id as Código, CONCAT(nombre,' ',apellidoPaterno,' ',apellidoMaterno) as Nombre, " +
                     "fechaBautismo as [Fecha de Bautismo], fechaNacimiento as [Fecha de Nacimiento], nombrePadre as [Nombre del Padre], nombreMadre as [Nombre de la Madre] from bautismos where fechaBautismo between '" + fecha1 + "' AND '" + fecha2 + "'");
-                **/
+                
                 limpiar();
             }
             else
@@ -164,13 +158,12 @@ namespace Boletas.Module.Administrar.View.Bautizos
 
                 ventanaModificar.StartPosition = FormStartPosition.CenterScreen;
                 ventanaModificar.ShowDialog();
-                dataGridBautizos.Update();
-                /**
+                
                 RecargarFechas();
 
                 dataGridBautizos.DataSource = bd.SelectDataTable("Select id as Código, CONCAT(nombre,' ',apellidoPaterno,' ',apellidoMaterno) as Nombre, " +
                     "fechaBautismo as [Fecha de Bautismo], fechaNacimiento as [Fecha de Nacimiento], nombrePadre as [Nombre del Padre], nombreMadre as [Nombre de la Madre] from bautismos where fechaBautismo between '" + fecha1 + "' AND '" + fecha2 + "'");
-                **/
+                
                 limpiar();
             }
             else
@@ -241,18 +234,18 @@ namespace Boletas.Module.Administrar.View.Bautizos
 
         private void btnBoletaPdf_Click(object sender, EventArgs e)
         {
-            if (txtId.Text == "")
+            if (string.IsNullOrWhiteSpace(txtId.Text))
             {
                 MessageBox.Show("Primero debe seleccionar un registro", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
                 BoletaBautismos bolBautismos = new BoletaBautismos();
-                string route = bolBautismos.generarBoletaBautismo(txtId.Text);
+                string route = bolBautismos.generarBoletaBautismo(Int32.Parse(txtId.Text));
                 /**
              Se eliminar el archivo una vez generada la ventana modal.
              */
-                System.IO.File.Delete(route);
+                File.Delete(route);
             }
             
         }

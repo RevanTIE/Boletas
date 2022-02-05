@@ -41,9 +41,9 @@ namespace Boletas.Module.Administrar.Model.Bautizos
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private string _sexo;
+        private int _sexo;
 
-        public string sexo
+        public int sexo
         {
             get => _sexo;
             set
@@ -161,18 +161,6 @@ namespace Boletas.Module.Administrar.Model.Bautizos
             }
         }
 
-        private string _parroco;
-
-        public string parroco
-        {
-            get => _parroco;
-            set
-            {
-                _parroco = value;
-                OnPropertyChanged();
-            }
-        }
-
         private DateTime _fechaBautismo;
 
         public DateTime fechaBautismo
@@ -274,48 +262,43 @@ namespace Boletas.Module.Administrar.Model.Bautizos
 
         private bautismo ConsultarBautismo(int idBautizado)
         {
-            bautismo BautismoEntity = context.bautismos.Where(x => x.id == idBautizado).FirstOrDefault();
-            return BautismoEntity;
+            bautismo ConsultaBautismo = context.bautismos
+                .Include("ministro")
+                .Include("estado")
+                .Where(x => x.id == idBautizado).FirstOrDefault();
+            return ConsultaBautismo;
         }
 
 
 
-        public string generarBoletaBautismo(string idBautizado)
+        public string generarBoletaBautismo(int idBautizado)
         {
 
-            //var ConsultaBoletas = ConsultarBautismo(idBautizado);
+            bautismo ConsultaBautismo = ConsultarBautismo(idBautizado);
 
-            parroquia = bd.SelectString("Select nombre from parroquia where id = 1").ToString();
-            nombre = bd.SelectString("Select CONCAT(nombre,' ',apellidoPaterno,' ',apellidoMaterno) as Nombre from bautismos where id = '" + idBautizado + "'").ToString();
-            fechaBautismo = Convert.ToDateTime(bd.SelectString("Select fechaBautismo from bautismos where id = '" + idBautizado + "'").ToString());
-            fechaNacimiento = Convert.ToDateTime(bd.SelectString("Select fechaNacimiento from bautismos where id = '" + idBautizado + "'").ToString());
-            sexo = bd.SelectString("Select sexo from bautismos where id = '" + idBautizado + "'").ToString();
-            nombrePadre = bd.SelectString("Select nombrePadre from bautismos where id = '" + idBautizado + "'").ToString();
-            nombreMadre = bd.SelectString("Select nombreMadre from bautismos where id = '" + idBautizado + "'").ToString();
-            nombrePadrino = bd.SelectString("Select nombrePadrino from bautismos where id = '" + idBautizado + "'").ToString();
-            nombreMadrina = bd.SelectString("Select nombreMadrina from bautismos where id = '" + idBautizado + "'").ToString();
-            //parroquia = bd.SelectString("Select parroquia from bautismos where id = '" + idBautizado + "'").ToString();
-            municipio = bd.SelectString("Select municipio from bautismos where id = '" + idBautizado + "'").ToString();
-            ciudad = bd.SelectString("Select ciudad from bautismos where id = '" + idBautizado + "'").ToString();
-            bautizante = bd.SelectString("Select CONCAT(ministros.nombre,' ',ministros.apellidoPaterno,' ',ministros.apellidoMaterno) from bautismos INNER JOIN ministros ON bautismos.idMinistro = ministros.id where bautismos.id = '" + idBautizado + "'").ToString();
-            estado = bd.SelectString("Select estados.nombre from bautismos INNER JOIN estados ON bautismos.idEstado = estados.id where bautismos.id = '" + idBautizado + "'").ToString();
-            parroco = bd.SelectString("Select CONCAT(parroco.nombre,' ',parroco.apellidoPaterno,' ',parroco.apellidoMaterno) from bautismos INNER JOIN parroco ON bautismos.idParroco = parroco.id where bautismos.id = '" + idBautizado + "'").ToString();
-
-            //fBautismoAnio = fechaBautismo.ToString().Substring(6, 4);
-            fBautismoAnio = fechaBautismo.Year.ToString(); //fechaBautismo.Substring(6, 4);
-            //fBautismoMes = mes(fechaBautismo.Month);
-            fBautismoMes = fechaBautismo.Month.ToString(); //fechaBautismo.Substring(3, 2);
-            //fBautismoDia = fechaBautismo.ToString().Substring(0, 2);
-            fBautismoDia = fechaBautismo.Day.ToString(); // fechaBautismo.Substring(0, 2);
-            //fNacimientoAnio = fechaNacimiento.ToString().Substring(6, 4);
-            fNacimientoAnio = fechaNacimiento.Year.ToString(); //fechaNacimiento.Substring(6, 4);
-            //fNacimientoMes = mes(fechaNacimiento.Month);
-            fNacimientoMes = fechaNacimiento.Month.ToString();//fechaNacimiento.Substring(3, 2);
-            //fNacimientoDia = fechaNacimiento.ToString().Substring(0, 2);
-            fNacimientoDia = fechaNacimiento.Day.ToString(); //fechaNacimiento.Substring(0, 2);
+            parroquia = ConsultaBautismo.parroquia; //bd.SelectString("Select nombre from parroquia where id = 1").ToString();
+            nombre = ConsultaBautismo.nombre + " " + ConsultaBautismo.apellidoPaterno + " " + ConsultaBautismo.apellidoMaterno;
+            fechaBautismo = ConsultaBautismo.fechaBautismo;
+            fechaNacimiento = ConsultaBautismo.fechaNacimiento;
+            sexo = ConsultaBautismo.sexo;
+            nombrePadre = ConsultaBautismo.nombrePadre;
+            nombreMadre = ConsultaBautismo.nombreMadre;
+            nombrePadrino = ConsultaBautismo.nombrePadrino;
+            nombreMadrina = ConsultaBautismo.nombreMadrina;
+            municipio = ConsultaBautismo.municipio;
+            ciudad = ConsultaBautismo.ciudad;
+            bautizante = ConsultaBautismo.ministro.nombre + " " + ConsultaBautismo.ministro.apellidoPaterno + " " + ConsultaBautismo.ministro.apellidoMaterno; 
+            estado = ConsultaBautismo.estado.nombre; 
+           
+            fBautismoAnio = fechaBautismo.Year.ToString();
+            fBautismoMes = mes(fechaBautismo.Month);
+            fBautismoDia = fechaBautismo.Day.ToString();
+            fNacimientoAnio = fechaNacimiento.Year.ToString();
+            fNacimientoMes = mes(fechaNacimiento.Month);
+            fNacimientoDia = fechaNacimiento.Day.ToString();
 
             
-            if (sexo == "1")
+            if (sexo == 1)
             {
                 bautizado = "BAUTIZADO";
                 infante = "UN NIÑO";
