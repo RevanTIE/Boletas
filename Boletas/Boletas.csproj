@@ -1,0 +1,802 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4A5D9AE8-128B-4E84-AE2F-BFA1E7D2FEE5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Boletas</RootNamespace>
+    <AssemblyName>Boletas</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <TargetCulture>es-MX</TargetCulture>
+    <ProductName>Boletas San Cristóbal</ProductName>
+    <PublisherName>ELH</PublisherName>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Boletas.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>boletassc.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa">
+      <HintPath>..\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>..\itextsharp.xtra.dll</HintPath>
+    </Reference>
+    <Reference Include="libraryConnection">
+      <HintPath>..\libraryConnection.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\bautismo.cs">
+      <DependentUpon>BoletasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BoletasModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoletasModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BoletasModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoletasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BoletasModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BoletasModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\catequista.cs">
+      <DependentUpon>BoletasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\confirmacione.cs">
+      <DependentUpon>BoletasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\empleado.cs">
+      <DependentUpon>BoletasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\estado.cs">
+      <DependentUpon>BoletasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\estatu.cs">
+      <DependentUpon>BoletasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\matrimonio.cs">
+      <DependentUpon>BoletasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ministro.cs">
+      <DependentUpon>BoletasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\parroco.cs">
+      <DependentUpon>BoletasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\parroquia.cs">
+      <DependentUpon>BoletasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\primerasComunione.cs">
+      <DependentUpon>BoletasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\usuario.cs">
+      <DependentUpon>BoletasModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\Controller\Bautizos\GeneroBautizado.cs" />
+    <Compile Include="Module\Administrar\Model\Bautizos\BoletaBautismos.cs" />
+    <Compile Include="Module\Administrar\Model\Comuniones\BoletaComuniones.cs" />
+    <Compile Include="Module\Administrar\Model\Confirmaciones\BoletaConfirmaciones.cs" />
+    <Compile Include="Module\Administrar\Model\Matrimonios\BoletaMatrimonios.cs" />
+    <Compile Include="Module\Administrar\View\Bautizos\BautismosModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Bautizos\BautismosModal.Designer.cs">
+      <DependentUpon>BautismosModal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Bautizos\Bautizos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Bautizos\Bautizos.Designer.cs">
+      <DependentUpon>Bautizos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Bautizos\Crear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Bautizos\Crear.Designer.cs">
+      <DependentUpon>Crear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Bautizos\Detalles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Bautizos\Detalles.Designer.cs">
+      <DependentUpon>Detalles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Bautizos\Eliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Bautizos\Eliminar.Designer.cs">
+      <DependentUpon>Eliminar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Bautizos\Modificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Bautizos\Modificar.Designer.cs">
+      <DependentUpon>Modificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Confirmaciones\Confirmaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Confirmaciones\Confirmaciones.Designer.cs">
+      <DependentUpon>Confirmaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Confirmaciones\ConfirmacionesModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Confirmaciones\ConfirmacionesModal.Designer.cs">
+      <DependentUpon>ConfirmacionesModal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Confirmaciones\Crear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Confirmaciones\Crear.Designer.cs">
+      <DependentUpon>Crear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Confirmaciones\Detalles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Confirmaciones\Detalles.Designer.cs">
+      <DependentUpon>Detalles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Confirmaciones\Eliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Confirmaciones\Eliminar.Designer.cs">
+      <DependentUpon>Eliminar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Confirmaciones\Modificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Confirmaciones\Modificar.Designer.cs">
+      <DependentUpon>Modificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Matrimonios\Crear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Matrimonios\Crear.Designer.cs">
+      <DependentUpon>Crear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Matrimonios\Detalles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Matrimonios\Detalles.Designer.cs">
+      <DependentUpon>Detalles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Matrimonios\Eliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Matrimonios\Eliminar.Designer.cs">
+      <DependentUpon>Eliminar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Matrimonios\Matrimonios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Matrimonios\Matrimonios.Designer.cs">
+      <DependentUpon>Matrimonios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Matrimonios\MatrimoniosModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Matrimonios\MatrimoniosModal.Designer.cs">
+      <DependentUpon>MatrimoniosModal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Matrimonios\Modificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\Matrimonios\Modificar.Designer.cs">
+      <DependentUpon>Modificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\PrimerasComuniones\ComunionesModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\PrimerasComuniones\ComunionesModal.Designer.cs">
+      <DependentUpon>ComunionesModal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\PrimerasComuniones\Crear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\PrimerasComuniones\Crear.Designer.cs">
+      <DependentUpon>Crear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\PrimerasComuniones\Detalles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\PrimerasComuniones\Detalles.Designer.cs">
+      <DependentUpon>Detalles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\PrimerasComuniones\Eliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\PrimerasComuniones\Eliminar.Designer.cs">
+      <DependentUpon>Eliminar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\PrimerasComuniones\Modificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\PrimerasComuniones\Modificar.Designer.cs">
+      <DependentUpon>Modificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Administrar\View\PrimerasComuniones\PrimerasComuniones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Administrar\View\PrimerasComuniones\PrimerasComuniones.Designer.cs">
+      <DependentUpon>PrimerasComuniones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\Model\SqlCatequistas.cs" />
+    <Compile Include="Module\Catalogo\View\Catequistas\Catequistas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Catequistas\Catequistas.Designer.cs">
+      <DependentUpon>Catequistas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Catequistas\Crear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Catequistas\Crear.Designer.cs">
+      <DependentUpon>Crear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Catequistas\Detalles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Catequistas\Detalles.Designer.cs">
+      <DependentUpon>Detalles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Catequistas\Eliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Catequistas\Eliminar.Designer.cs">
+      <DependentUpon>Eliminar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Catequistas\Modificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Catequistas\Modificar.Designer.cs">
+      <DependentUpon>Modificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Empleados\Crear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Empleados\Crear.Designer.cs">
+      <DependentUpon>Crear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Empleados\Detalles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Empleados\Detalles.Designer.cs">
+      <DependentUpon>Detalles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Empleados\Eliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Empleados\Eliminar.Designer.cs">
+      <DependentUpon>Eliminar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Empleados\Empleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Empleados\Empleados.Designer.cs">
+      <DependentUpon>Empleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Empleados\Modificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Empleados\Modificar.Designer.cs">
+      <DependentUpon>Modificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Estados\Crear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Estados\Crear.Designer.cs">
+      <DependentUpon>Crear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Estados\Detalles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Estados\Detalles.Designer.cs">
+      <DependentUpon>Detalles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Estados\Eliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Estados\Eliminar.Designer.cs">
+      <DependentUpon>Eliminar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Estados\Modificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Estados\Modificar.Designer.cs">
+      <DependentUpon>Modificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Ministros\Crear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Ministros\Crear.Designer.cs">
+      <DependentUpon>Crear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Ministros\Detalles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Ministros\Detalles.Designer.cs">
+      <DependentUpon>Detalles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Ministros\Eliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Ministros\Eliminar.Designer.cs">
+      <DependentUpon>Eliminar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Ministros\Ministros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Ministros\Ministros.Designer.cs">
+      <DependentUpon>Ministros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Ministros\Modificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Ministros\Modificar.Designer.cs">
+      <DependentUpon>Modificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Parroco\Crear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Parroco\Crear.Designer.cs">
+      <DependentUpon>Crear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Parroco\Detalles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Parroco\Detalles.Designer.cs">
+      <DependentUpon>Detalles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Parroco\Eliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Parroco\Eliminar.Designer.cs">
+      <DependentUpon>Eliminar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Parroco\Modificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Parroco\Modificar.Designer.cs">
+      <DependentUpon>Modificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Parroco\Parroco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Parroco\Parroco.Designer.cs">
+      <DependentUpon>Parroco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Configuracion\View\Parroquia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Configuracion\View\Parroquia.Designer.cs">
+      <DependentUpon>Parroquia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Configuracion\View\Usuarios\Crear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Configuracion\View\Usuarios\Crear.Designer.cs">
+      <DependentUpon>Crear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Configuracion\View\Usuarios\Detalles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Configuracion\View\Usuarios\Detalles.Designer.cs">
+      <DependentUpon>Detalles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Configuracion\View\Usuarios\Eliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Configuracion\View\Usuarios\Eliminar.Designer.cs">
+      <DependentUpon>Eliminar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Configuracion\View\Usuarios\Modificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Configuracion\View\Usuarios\Modificar.Designer.cs">
+      <DependentUpon>Modificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Configuracion\View\Usuarios\Usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Configuracion\View\Usuarios\Usuarios.Designer.cs">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Module\Catalogo\View\Estados\Estados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Catalogo\View\Estados\Estados.Designer.cs">
+      <DependentUpon>Estados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\Index\View\Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module\Index\View\Inicio.Designer.cs">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RespaldarBD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RespaldarBD.Designer.cs">
+      <DependentUpon>RespaldarBD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RestaurarBD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RestaurarBD.Designer.cs">
+      <DependentUpon>RestaurarBD.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.es-MX.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\Bautizos\BautismosModal.resx">
+      <DependentUpon>BautismosModal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\Bautizos\Bautizos.resx">
+      <DependentUpon>Bautizos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\Bautizos\Crear.resx">
+      <DependentUpon>Crear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\Bautizos\Detalles.resx">
+      <DependentUpon>Detalles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\Bautizos\Eliminar.resx">
+      <DependentUpon>Eliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\Bautizos\Modificar.resx">
+      <DependentUpon>Modificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\Confirmaciones\Confirmaciones.resx">
+      <DependentUpon>Confirmaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\Confirmaciones\ConfirmacionesModal.resx">
+      <DependentUpon>ConfirmacionesModal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\Confirmaciones\Crear.resx">
+      <DependentUpon>Crear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\Confirmaciones\Detalles.resx">
+      <DependentUpon>Detalles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\Confirmaciones\Eliminar.resx">
+      <DependentUpon>Eliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\Confirmaciones\Modificar.resx">
+      <DependentUpon>Modificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\Matrimonios\Crear.resx">
+      <DependentUpon>Crear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\Matrimonios\Detalles.resx">
+      <DependentUpon>Detalles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\Matrimonios\Eliminar.resx">
+      <DependentUpon>Eliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\Matrimonios\Matrimonios.resx">
+      <DependentUpon>Matrimonios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\Matrimonios\MatrimoniosModal.resx">
+      <DependentUpon>MatrimoniosModal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\Matrimonios\Modificar.resx">
+      <DependentUpon>Modificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\PrimerasComuniones\ComunionesModal.resx">
+      <DependentUpon>ComunionesModal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\PrimerasComuniones\Crear.resx">
+      <DependentUpon>Crear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\PrimerasComuniones\Detalles.resx">
+      <DependentUpon>Detalles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\PrimerasComuniones\Eliminar.resx">
+      <DependentUpon>Eliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\PrimerasComuniones\Modificar.resx">
+      <DependentUpon>Modificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Administrar\View\PrimerasComuniones\PrimerasComuniones.resx">
+      <DependentUpon>PrimerasComuniones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Catequistas\Catequistas.resx">
+      <DependentUpon>Catequistas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Catequistas\Crear.resx">
+      <DependentUpon>Crear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Catequistas\Detalles.resx">
+      <DependentUpon>Detalles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Catequistas\Eliminar.resx">
+      <DependentUpon>Eliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Catequistas\Modificar.resx">
+      <DependentUpon>Modificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Empleados\Crear.resx">
+      <DependentUpon>Crear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Empleados\Detalles.resx">
+      <DependentUpon>Detalles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Empleados\Eliminar.resx">
+      <DependentUpon>Eliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Empleados\Empleados.resx">
+      <DependentUpon>Empleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Empleados\Modificar.resx">
+      <DependentUpon>Modificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Estados\Crear.resx">
+      <DependentUpon>Crear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Estados\Detalles.resx">
+      <DependentUpon>Detalles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Estados\Eliminar.resx">
+      <DependentUpon>Eliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Estados\Modificar.resx">
+      <DependentUpon>Modificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Ministros\Crear.resx">
+      <DependentUpon>Crear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Ministros\Detalles.resx">
+      <DependentUpon>Detalles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Ministros\Eliminar.resx">
+      <DependentUpon>Eliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Ministros\Ministros.resx">
+      <DependentUpon>Ministros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Ministros\Modificar.resx">
+      <DependentUpon>Modificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Parroco\Crear.resx">
+      <DependentUpon>Crear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Parroco\Detalles.resx">
+      <DependentUpon>Detalles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Parroco\Eliminar.resx">
+      <DependentUpon>Eliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Parroco\Modificar.resx">
+      <DependentUpon>Modificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Catalogo\View\Parroco\Parroco.resx">
+      <DependentUpon>Parroco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Configuracion\View\Parroquia.resx">
+      <DependentUpon>Parroquia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Configuracion\View\Usuarios\Crear.resx">
+      <DependentUpon>Crear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Configuracion\View\Usuarios\Detalles.resx">
+      <DependentUpon>Detalles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Configuracion\View\Usuarios\Eliminar.resx">
+      <DependentUpon>Eliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Configuracion\View\Usuarios\Modificar.resx">
+      <DependentUpon>Modificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Configuracion\View\Usuarios\Usuarios.resx">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Module\Catalogo\View\Estados\Estados.resx">
+      <DependentUpon>Estados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module\Index\View\Inicio.resx">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RespaldarBD.resx">
+      <DependentUpon>RespaldarBD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RestaurarBD.resx">
+      <DependentUpon>RestaurarBD.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="boletassc.pfx" />
+    <EntityDeploy Include="Model\BoletasModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BoletasModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\BoletasModel.edmx.diagram">
+      <DependentUpon>BoletasModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Module\Administrar\Config\" />
+    <Folder Include="Module\Catalogo\Config\" />
+    <Folder Include="Module\Catalogo\Controller\" />
+    <Folder Include="Module\Configuracion\Config\" />
+    <Folder Include="Module\Configuracion\Controller\" />
+    <Folder Include="Module\Configuracion\Model\" />
+    <Folder Include="Module\Index\Config\" />
+    <Folder Include="Module\Index\Controller\" />
+    <Folder Include="Module\Index\Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\parroquia.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo.ico" />
+    <Content Include="Model\BoletasModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>BoletasModel.Context.cs</LastGenOutput>
+      <DependentUpon>BoletasModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\BoletasModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BoletasModel.edmx</DependentUpon>
+      <LastGenOutput>BoletasModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

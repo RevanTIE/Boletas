@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="58d792906c6a46c285403f6badf4ab82" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="boletasModel.bautismo" Width="1.5" PointX="8.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="boletasModel.catequista" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="boletasModel.confirmacione" Width="1.5" PointX="5.25" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="boletasModel.empleado" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="boletasModel.estado" Width="1.5" PointX="6" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="boletasModel.estatu" Width="1.5" PointX="0.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="boletasModel.matrimonio" Width="1.5" PointX="8.25" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="boletasModel.ministro" Width="1.5" PointX="3" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="boletasModel.parroco" Width="1.5" PointX="3" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="boletasModel.primerasComunione" Width="1.5" PointX="5.25" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="boletasModel.usuario" Width="1.5" PointX="5.25" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="boletasModel.parroquia" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="boletasModel.idEstadoBautismos" ManuallyRouted="false" />
+        <AssociationConnector Association="boletasModel.idMinistroBautismos" ManuallyRouted="false" />
+        <AssociationConnector Association="boletasModel.idCatequistaPrimerasComuniones" ManuallyRouted="false" />
+        <AssociationConnector Association="boletasModel.idEstatusCatequistas" ManuallyRouted="false" />
+        <AssociationConnector Association="boletasModel.idEstadoConfirmaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="boletasModel.idMinistroConfirmaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="boletasModel.idEmpleadoUsuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="boletasModel.idEstatusEmpleados" ManuallyRouted="false" />
+        <AssociationConnector Association="boletasModel.idEstatusMinistros" ManuallyRouted="false" />
+        <AssociationConnector Association="boletasModel.idEstatusParroco" ManuallyRouted="false" />
+        <AssociationConnector Association="boletasModel.idMinistroMatrimonios" ManuallyRouted="false" />
+        <AssociationConnector Association="boletasModel.idParrocoMatrimonios" ManuallyRouted="false" />
+        <AssociationConnector Association="boletasModel.idParrocoPrimerasComuniones" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

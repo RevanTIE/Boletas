@@ -1,0 +1,1011 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="boletasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bautismos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fechaBautismo" Type="datetime" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellidoPaterno" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="apellidoMaterno" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="fechaNacimiento" Type="datetime" Nullable="false" />
+          <Property Name="sexo" Type="int" Nullable="false" />
+          <Property Name="nombrePadre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="nombreMadre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="nombrePadrino" Type="varchar" MaxLength="100" />
+          <Property Name="nombreMadrina" Type="varchar" MaxLength="100" />
+          <Property Name="parroquia" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="municipio" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ciudad" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="idEstado" Type="int" Nullable="false" />
+          <Property Name="idMinistro" Type="int" />
+        </EntityType>
+        <EntityType Name="catequistas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="apellidoPaterno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellidoMaterno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefono" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="correoElectronico" Type="varchar" MaxLength="30" />
+          <Property Name="direccion" Type="varchar" MaxLength="100" />
+          <Property Name="idEstatus" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="confirmaciones">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellidoPaterno" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="apellidoMaterno" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="nombrePadre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="nombreMadre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="nombrePadrino" Type="varchar" MaxLength="100" />
+          <Property Name="nombreMadrina" Type="varchar" MaxLength="100" />
+          <Property Name="lugarBautismo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fechaBautismo" Type="datetime" Nullable="false" />
+          <Property Name="lugarConfirmacion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fechaConfirmacion" Type="datetime" Nullable="false" />
+          <Property Name="municipio" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ciudad" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="idEstado" Type="int" Nullable="false" />
+          <Property Name="idMinistro" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="empleados">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="apellidoPaterno" Type="varchar" MaxLength="50" />
+          <Property Name="apellidoMaterno" Type="varchar" MaxLength="50" />
+          <Property Name="puesto" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefono" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="correoElectronico" Type="varchar" MaxLength="30" />
+          <Property Name="direccion" Type="varchar" MaxLength="100" />
+          <Property Name="idEstatus" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="estados">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="80" Nullable="false" />
+        </EntityType>
+        <EntityType Name="estatus">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="estatus" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="matrimonios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fechaMatrimonio" Type="datetime" Nullable="false" />
+          <Property Name="nombreEsposo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellidoPaternoEsposo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="apellidoMaternoEsposo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="nombreEsposa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellidoPaternoEsposa" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="apellidoMaternoEsposa" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="parroquiaProcedencia" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="padrinoVelacion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="madrinaVelacion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="padrinoAnillos" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="madrinaAnillos" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="padrinoArras" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="madrinaArras" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="idParroco" Type="int" Nullable="false" />
+          <Property Name="idMinistro" Type="int" />
+        </EntityType>
+        <EntityType Name="ministros">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="apellidoPaterno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellidoMaterno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idEstatus" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="parroco">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="apellidoPaterno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellidoMaterno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefono" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="correoElectronico" Type="varchar" MaxLength="30" />
+          <Property Name="direccion" Type="varchar" MaxLength="100" />
+          <Property Name="idEstatus" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'boletas.dbo.parroquia' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="parroquia">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="direccion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="primerasComuniones">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellidoPaterno" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="apellidoMaterno" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="fechaComunion" Type="datetime" Nullable="false" />
+          <Property Name="nombrePadrino" Type="varchar" MaxLength="100" />
+          <Property Name="nombreMadrina" Type="varchar" MaxLength="100" />
+          <Property Name="idCatequista" Type="int" Nullable="false" />
+          <Property Name="idParroco" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="contrasenia" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="idEmpleado" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="idCatequistaPrimerasComuniones">
+          <End Role="catequistas" Type="Self.catequistas" Multiplicity="1" />
+          <End Role="primerasComuniones" Type="Self.primerasComuniones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catequistas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="primerasComuniones">
+              <PropertyRef Name="idCatequista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEmpleadoUsuarios">
+          <End Role="empleados" Type="Self.empleados" Multiplicity="1" />
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empleados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEstadoBautismos">
+          <End Role="estados" Type="Self.estados" Multiplicity="1" />
+          <End Role="bautismos" Type="Self.bautismos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bautismos">
+              <PropertyRef Name="idEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEstadoConfirmaciones">
+          <End Role="estados" Type="Self.estados" Multiplicity="1" />
+          <End Role="confirmaciones" Type="Self.confirmaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="confirmaciones">
+              <PropertyRef Name="idEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEstatusCatequistas">
+          <End Role="estatus" Type="Self.estatus" Multiplicity="1" />
+          <End Role="catequistas" Type="Self.catequistas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estatus">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="catequistas">
+              <PropertyRef Name="idEstatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEstatusEmpleados">
+          <End Role="estatus" Type="Self.estatus" Multiplicity="1" />
+          <End Role="empleados" Type="Self.empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estatus">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="empleados">
+              <PropertyRef Name="idEstatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEstatusMinistros">
+          <End Role="estatus" Type="Self.estatus" Multiplicity="1" />
+          <End Role="ministros" Type="Self.ministros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estatus">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ministros">
+              <PropertyRef Name="idEstatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEstatusParroco">
+          <End Role="estatus" Type="Self.estatus" Multiplicity="1" />
+          <End Role="parroco" Type="Self.parroco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estatus">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="parroco">
+              <PropertyRef Name="idEstatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idMinistroBautismos">
+          <End Role="ministros" Type="Self.ministros" Multiplicity="0..1" />
+          <End Role="bautismos" Type="Self.bautismos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ministros">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bautismos">
+              <PropertyRef Name="idMinistro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idMinistroConfirmaciones">
+          <End Role="ministros" Type="Self.ministros" Multiplicity="1" />
+          <End Role="confirmaciones" Type="Self.confirmaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ministros">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="confirmaciones">
+              <PropertyRef Name="idMinistro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idMinistroMatrimonios">
+          <End Role="ministros" Type="Self.ministros" Multiplicity="0..1" />
+          <End Role="matrimonios" Type="Self.matrimonios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ministros">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="matrimonios">
+              <PropertyRef Name="idMinistro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idParrocoMatrimonios">
+          <End Role="parroco" Type="Self.parroco" Multiplicity="1" />
+          <End Role="matrimonios" Type="Self.matrimonios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="parroco">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="matrimonios">
+              <PropertyRef Name="idParroco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idParrocoPrimerasComuniones">
+          <End Role="parroco" Type="Self.parroco" Multiplicity="1" />
+          <End Role="primerasComuniones" Type="Self.primerasComuniones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="parroco">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="primerasComuniones">
+              <PropertyRef Name="idParroco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="boletasModelStoreContainer">
+          <EntitySet Name="bautismos" EntityType="Self.bautismos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="catequistas" EntityType="Self.catequistas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="confirmaciones" EntityType="Self.confirmaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="empleados" EntityType="Self.empleados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estados" EntityType="Self.estados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estatus" EntityType="Self.estatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="matrimonios" EntityType="Self.matrimonios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ministros" EntityType="Self.ministros" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="parroco" EntityType="Self.parroco" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="primerasComuniones" EntityType="Self.primerasComuniones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="parroquia" EntityType="Self.parroquia" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [parroquia].[id] AS [id], 
+    [parroquia].[nombre] AS [nombre], 
+    [parroquia].[direccion] AS [direccion]
+    FROM [dbo].[parroquia] AS [parroquia]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="idCatequistaPrimerasComuniones" Association="Self.idCatequistaPrimerasComuniones">
+            <End Role="catequistas" EntitySet="catequistas" />
+            <End Role="primerasComuniones" EntitySet="primerasComuniones" />
+          </AssociationSet>
+          <AssociationSet Name="idEmpleadoUsuarios" Association="Self.idEmpleadoUsuarios">
+            <End Role="empleados" EntitySet="empleados" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="idEstadoBautismos" Association="Self.idEstadoBautismos">
+            <End Role="estados" EntitySet="estados" />
+            <End Role="bautismos" EntitySet="bautismos" />
+          </AssociationSet>
+          <AssociationSet Name="idEstadoConfirmaciones" Association="Self.idEstadoConfirmaciones">
+            <End Role="estados" EntitySet="estados" />
+            <End Role="confirmaciones" EntitySet="confirmaciones" />
+          </AssociationSet>
+          <AssociationSet Name="idEstatusCatequistas" Association="Self.idEstatusCatequistas">
+            <End Role="estatus" EntitySet="estatus" />
+            <End Role="catequistas" EntitySet="catequistas" />
+          </AssociationSet>
+          <AssociationSet Name="idEstatusEmpleados" Association="Self.idEstatusEmpleados">
+            <End Role="estatus" EntitySet="estatus" />
+            <End Role="empleados" EntitySet="empleados" />
+          </AssociationSet>
+          <AssociationSet Name="idEstatusMinistros" Association="Self.idEstatusMinistros">
+            <End Role="estatus" EntitySet="estatus" />
+            <End Role="ministros" EntitySet="ministros" />
+          </AssociationSet>
+          <AssociationSet Name="idEstatusParroco" Association="Self.idEstatusParroco">
+            <End Role="estatus" EntitySet="estatus" />
+            <End Role="parroco" EntitySet="parroco" />
+          </AssociationSet>
+          <AssociationSet Name="idMinistroBautismos" Association="Self.idMinistroBautismos">
+            <End Role="ministros" EntitySet="ministros" />
+            <End Role="bautismos" EntitySet="bautismos" />
+          </AssociationSet>
+          <AssociationSet Name="idMinistroConfirmaciones" Association="Self.idMinistroConfirmaciones">
+            <End Role="ministros" EntitySet="ministros" />
+            <End Role="confirmaciones" EntitySet="confirmaciones" />
+          </AssociationSet>
+          <AssociationSet Name="idMinistroMatrimonios" Association="Self.idMinistroMatrimonios">
+            <End Role="ministros" EntitySet="ministros" />
+            <End Role="matrimonios" EntitySet="matrimonios" />
+          </AssociationSet>
+          <AssociationSet Name="idParrocoMatrimonios" Association="Self.idParrocoMatrimonios">
+            <End Role="parroco" EntitySet="parroco" />
+            <End Role="matrimonios" EntitySet="matrimonios" />
+          </AssociationSet>
+          <AssociationSet Name="idParrocoPrimerasComuniones" Association="Self.idParrocoPrimerasComuniones">
+            <End Role="parroco" EntitySet="parroco" />
+            <End Role="primerasComuniones" EntitySet="primerasComuniones" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="boletasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="bautismo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fechaBautismo" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoPaterno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoMaterno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaNacimiento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="sexo" Type="Int32" Nullable="false" />
+          <Property Name="nombrePadre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombreMadre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombrePadrino" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nombreMadrina" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="parroquia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="municipio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ciudad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idEstado" Type="Int32" Nullable="false" />
+          <Property Name="idMinistro" Type="Int32" />
+          <NavigationProperty Name="estado" Relationship="Self.idEstadoBautismos" FromRole="bautismos" ToRole="estados" />
+          <NavigationProperty Name="ministro" Relationship="Self.idMinistroBautismos" FromRole="bautismos" ToRole="ministros" />
+        </EntityType>
+        <EntityType Name="catequista">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoPaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="correoElectronico" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="idEstatus" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="primerasComuniones" Relationship="Self.idCatequistaPrimerasComuniones" FromRole="catequistas" ToRole="primerasComuniones" />
+          <NavigationProperty Name="estatu" Relationship="Self.idEstatusCatequistas" FromRole="catequistas" ToRole="estatus" />
+        </EntityType>
+        <EntityType Name="confirmacione">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoPaterno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoMaterno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombrePadre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombreMadre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombrePadrino" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nombreMadrina" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="lugarBautismo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaBautismo" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="lugarConfirmacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaConfirmacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="municipio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ciudad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idEstado" Type="Int32" Nullable="false" />
+          <Property Name="idMinistro" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="estado" Relationship="Self.idEstadoConfirmaciones" FromRole="confirmaciones" ToRole="estados" />
+          <NavigationProperty Name="ministro" Relationship="Self.idMinistroConfirmaciones" FromRole="confirmaciones" ToRole="ministros" />
+        </EntityType>
+        <EntityType Name="empleado">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoPaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellidoMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="puesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="correoElectronico" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="idEstatus" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="usuarios" Relationship="Self.idEmpleadoUsuarios" FromRole="empleados" ToRole="usuarios" />
+          <NavigationProperty Name="estatu" Relationship="Self.idEstatusEmpleados" FromRole="empleados" ToRole="estatus" />
+        </EntityType>
+        <EntityType Name="estado">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="bautismos" Relationship="Self.idEstadoBautismos" FromRole="estados" ToRole="bautismos" />
+          <NavigationProperty Name="confirmaciones" Relationship="Self.idEstadoConfirmaciones" FromRole="estados" ToRole="confirmaciones" />
+        </EntityType>
+        <EntityType Name="estatu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="estatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="catequistas" Relationship="Self.idEstatusCatequistas" FromRole="estatus" ToRole="catequistas" />
+          <NavigationProperty Name="empleados" Relationship="Self.idEstatusEmpleados" FromRole="estatus" ToRole="empleados" />
+          <NavigationProperty Name="ministros" Relationship="Self.idEstatusMinistros" FromRole="estatus" ToRole="ministros" />
+          <NavigationProperty Name="parrocoes" Relationship="Self.idEstatusParroco" FromRole="estatus" ToRole="parroco" />
+        </EntityType>
+        <EntityType Name="matrimonio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fechaMatrimonio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="nombreEsposo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoPaternoEsposo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoMaternoEsposo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombreEsposa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoPaternoEsposa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoMaternoEsposa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="parroquiaProcedencia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="padrinoVelacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="madrinaVelacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="padrinoAnillos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="madrinaAnillos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="padrinoArras" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="madrinaArras" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idParroco" Type="Int32" Nullable="false" />
+          <Property Name="idMinistro" Type="Int32" />
+          <NavigationProperty Name="ministro" Relationship="Self.idMinistroMatrimonios" FromRole="matrimonios" ToRole="ministros" />
+          <NavigationProperty Name="parroco" Relationship="Self.idParrocoMatrimonios" FromRole="matrimonios" ToRole="parroco" />
+        </EntityType>
+        <EntityType Name="ministro">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoPaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idEstatus" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="bautismos" Relationship="Self.idMinistroBautismos" FromRole="ministros" ToRole="bautismos" />
+          <NavigationProperty Name="confirmaciones" Relationship="Self.idMinistroConfirmaciones" FromRole="ministros" ToRole="confirmaciones" />
+          <NavigationProperty Name="estatu" Relationship="Self.idEstatusMinistros" FromRole="ministros" ToRole="estatus" />
+          <NavigationProperty Name="matrimonios" Relationship="Self.idMinistroMatrimonios" FromRole="ministros" ToRole="matrimonios" />
+        </EntityType>
+        <EntityType Name="parroco">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoPaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoMaterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="correoElectronico" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="idEstatus" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="estatu" Relationship="Self.idEstatusParroco" FromRole="parroco" ToRole="estatus" />
+          <NavigationProperty Name="matrimonios" Relationship="Self.idParrocoMatrimonios" FromRole="parroco" ToRole="matrimonios" />
+          <NavigationProperty Name="primerasComuniones" Relationship="Self.idParrocoPrimerasComuniones" FromRole="parroco" ToRole="primerasComuniones" />
+        </EntityType>
+        <EntityType Name="primerasComunione">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoPaterno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidoMaterno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaComunion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="nombrePadrino" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nombreMadrina" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="idCatequista" Type="Int32" Nullable="false" />
+          <Property Name="idParroco" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="catequista" Relationship="Self.idCatequistaPrimerasComuniones" FromRole="primerasComuniones" ToRole="catequistas" />
+          <NavigationProperty Name="parroco" Relationship="Self.idParrocoPrimerasComuniones" FromRole="primerasComuniones" ToRole="parroco" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contrasenia" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idEmpleado" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="empleado" Relationship="Self.idEmpleadoUsuarios" FromRole="usuarios" ToRole="empleados" />
+        </EntityType>
+        <EntityType Name="parroquia">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="idEstadoBautismos">
+          <End Role="estados" Type="Self.estado" Multiplicity="1" />
+          <End Role="bautismos" Type="Self.bautismo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bautismos">
+              <PropertyRef Name="idEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idMinistroBautismos">
+          <End Role="ministros" Type="Self.ministro" Multiplicity="0..1" />
+          <End Role="bautismos" Type="Self.bautismo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ministros">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bautismos">
+              <PropertyRef Name="idMinistro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idCatequistaPrimerasComuniones">
+          <End Role="catequistas" Type="Self.catequista" Multiplicity="1" />
+          <End Role="primerasComuniones" Type="Self.primerasComunione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catequistas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="primerasComuniones">
+              <PropertyRef Name="idCatequista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEstatusCatequistas">
+          <End Role="estatus" Type="Self.estatu" Multiplicity="1" />
+          <End Role="catequistas" Type="Self.catequista" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estatus">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="catequistas">
+              <PropertyRef Name="idEstatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEstadoConfirmaciones">
+          <End Role="estados" Type="Self.estado" Multiplicity="1" />
+          <End Role="confirmaciones" Type="Self.confirmacione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="confirmaciones">
+              <PropertyRef Name="idEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idMinistroConfirmaciones">
+          <End Role="ministros" Type="Self.ministro" Multiplicity="1" />
+          <End Role="confirmaciones" Type="Self.confirmacione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ministros">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="confirmaciones">
+              <PropertyRef Name="idMinistro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEmpleadoUsuarios">
+          <End Role="empleados" Type="Self.empleado" Multiplicity="1" />
+          <End Role="usuarios" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empleados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEstatusEmpleados">
+          <End Role="estatus" Type="Self.estatu" Multiplicity="1" />
+          <End Role="empleados" Type="Self.empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estatus">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="empleados">
+              <PropertyRef Name="idEstatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEstatusMinistros">
+          <End Role="estatus" Type="Self.estatu" Multiplicity="1" />
+          <End Role="ministros" Type="Self.ministro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estatus">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ministros">
+              <PropertyRef Name="idEstatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idEstatusParroco">
+          <End Role="estatus" Type="Self.estatu" Multiplicity="1" />
+          <End Role="parroco" Type="Self.parroco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estatus">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="parroco">
+              <PropertyRef Name="idEstatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idMinistroMatrimonios">
+          <End Role="ministros" Type="Self.ministro" Multiplicity="0..1" />
+          <End Role="matrimonios" Type="Self.matrimonio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ministros">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="matrimonios">
+              <PropertyRef Name="idMinistro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idParrocoMatrimonios">
+          <End Role="parroco" Type="Self.parroco" Multiplicity="1" />
+          <End Role="matrimonios" Type="Self.matrimonio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="parroco">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="matrimonios">
+              <PropertyRef Name="idParroco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="idParrocoPrimerasComuniones">
+          <End Role="parroco" Type="Self.parroco" Multiplicity="1" />
+          <End Role="primerasComuniones" Type="Self.primerasComunione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="parroco">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="primerasComuniones">
+              <PropertyRef Name="idParroco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bautismos" EntityType="Self.bautismo" />
+          <EntitySet Name="catequistas" EntityType="Self.catequista" />
+          <EntitySet Name="confirmaciones" EntityType="Self.confirmacione" />
+          <EntitySet Name="empleados" EntityType="Self.empleado" />
+          <EntitySet Name="estados" EntityType="Self.estado" />
+          <EntitySet Name="estatus" EntityType="Self.estatu" />
+          <EntitySet Name="matrimonios" EntityType="Self.matrimonio" />
+          <EntitySet Name="ministros" EntityType="Self.ministro" />
+          <EntitySet Name="parrocoes" EntityType="Self.parroco" />
+          <EntitySet Name="primerasComuniones" EntityType="Self.primerasComunione" />
+          <EntitySet Name="usuarios" EntityType="Self.usuario" />
+          <EntitySet Name="parroquias" EntityType="Self.parroquia" />
+          <AssociationSet Name="idEstadoBautismos" Association="Self.idEstadoBautismos">
+            <End Role="estados" EntitySet="estados" />
+            <End Role="bautismos" EntitySet="bautismos" />
+          </AssociationSet>
+          <AssociationSet Name="idMinistroBautismos" Association="Self.idMinistroBautismos">
+            <End Role="ministros" EntitySet="ministros" />
+            <End Role="bautismos" EntitySet="bautismos" />
+          </AssociationSet>
+          <AssociationSet Name="idCatequistaPrimerasComuniones" Association="Self.idCatequistaPrimerasComuniones">
+            <End Role="catequistas" EntitySet="catequistas" />
+            <End Role="primerasComuniones" EntitySet="primerasComuniones" />
+          </AssociationSet>
+          <AssociationSet Name="idEstatusCatequistas" Association="Self.idEstatusCatequistas">
+            <End Role="estatus" EntitySet="estatus" />
+            <End Role="catequistas" EntitySet="catequistas" />
+          </AssociationSet>
+          <AssociationSet Name="idEstadoConfirmaciones" Association="Self.idEstadoConfirmaciones">
+            <End Role="estados" EntitySet="estados" />
+            <End Role="confirmaciones" EntitySet="confirmaciones" />
+          </AssociationSet>
+          <AssociationSet Name="idMinistroConfirmaciones" Association="Self.idMinistroConfirmaciones">
+            <End Role="ministros" EntitySet="ministros" />
+            <End Role="confirmaciones" EntitySet="confirmaciones" />
+          </AssociationSet>
+          <AssociationSet Name="idEmpleadoUsuarios" Association="Self.idEmpleadoUsuarios">
+            <End Role="empleados" EntitySet="empleados" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="idEstatusEmpleados" Association="Self.idEstatusEmpleados">
+            <End Role="estatus" EntitySet="estatus" />
+            <End Role="empleados" EntitySet="empleados" />
+          </AssociationSet>
+          <AssociationSet Name="idEstatusMinistros" Association="Self.idEstatusMinistros">
+            <End Role="estatus" EntitySet="estatus" />
+            <End Role="ministros" EntitySet="ministros" />
+          </AssociationSet>
+          <AssociationSet Name="idEstatusParroco" Association="Self.idEstatusParroco">
+            <End Role="estatus" EntitySet="estatus" />
+            <End Role="parroco" EntitySet="parrocoes" />
+          </AssociationSet>
+          <AssociationSet Name="idMinistroMatrimonios" Association="Self.idMinistroMatrimonios">
+            <End Role="ministros" EntitySet="ministros" />
+            <End Role="matrimonios" EntitySet="matrimonios" />
+          </AssociationSet>
+          <AssociationSet Name="idParrocoMatrimonios" Association="Self.idParrocoMatrimonios">
+            <End Role="parroco" EntitySet="parrocoes" />
+            <End Role="matrimonios" EntitySet="matrimonios" />
+          </AssociationSet>
+          <AssociationSet Name="idParrocoPrimerasComuniones" Association="Self.idParrocoPrimerasComuniones">
+            <End Role="parroco" EntitySet="parrocoes" />
+            <End Role="primerasComuniones" EntitySet="primerasComuniones" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="boletasModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="bautismos">
+            <EntityTypeMapping TypeName="boletasModel.bautismo">
+              <MappingFragment StoreEntitySet="bautismos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fechaBautismo" ColumnName="fechaBautismo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellidoPaterno" ColumnName="apellidoPaterno" />
+                <ScalarProperty Name="apellidoMaterno" ColumnName="apellidoMaterno" />
+                <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
+                <ScalarProperty Name="nombrePadre" ColumnName="nombrePadre" />
+                <ScalarProperty Name="nombreMadre" ColumnName="nombreMadre" />
+                <ScalarProperty Name="nombrePadrino" ColumnName="nombrePadrino" />
+                <ScalarProperty Name="nombreMadrina" ColumnName="nombreMadrina" />
+                <ScalarProperty Name="parroquia" ColumnName="parroquia" />
+                <ScalarProperty Name="municipio" ColumnName="municipio" />
+                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+                <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+                <ScalarProperty Name="idMinistro" ColumnName="idMinistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catequistas">
+            <EntityTypeMapping TypeName="boletasModel.catequista">
+              <MappingFragment StoreEntitySet="catequistas">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellidoPaterno" ColumnName="apellidoPaterno" />
+                <ScalarProperty Name="apellidoMaterno" ColumnName="apellidoMaterno" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="idEstatus" ColumnName="idEstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="confirmaciones">
+            <EntityTypeMapping TypeName="boletasModel.confirmacione">
+              <MappingFragment StoreEntitySet="confirmaciones">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellidoPaterno" ColumnName="apellidoPaterno" />
+                <ScalarProperty Name="apellidoMaterno" ColumnName="apellidoMaterno" />
+                <ScalarProperty Name="nombrePadre" ColumnName="nombrePadre" />
+                <ScalarProperty Name="nombreMadre" ColumnName="nombreMadre" />
+                <ScalarProperty Name="nombrePadrino" ColumnName="nombrePadrino" />
+                <ScalarProperty Name="nombreMadrina" ColumnName="nombreMadrina" />
+                <ScalarProperty Name="lugarBautismo" ColumnName="lugarBautismo" />
+                <ScalarProperty Name="fechaBautismo" ColumnName="fechaBautismo" />
+                <ScalarProperty Name="lugarConfirmacion" ColumnName="lugarConfirmacion" />
+                <ScalarProperty Name="fechaConfirmacion" ColumnName="fechaConfirmacion" />
+                <ScalarProperty Name="municipio" ColumnName="municipio" />
+                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+                <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+                <ScalarProperty Name="idMinistro" ColumnName="idMinistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="empleados">
+            <EntityTypeMapping TypeName="boletasModel.empleado">
+              <MappingFragment StoreEntitySet="empleados">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellidoPaterno" ColumnName="apellidoPaterno" />
+                <ScalarProperty Name="apellidoMaterno" ColumnName="apellidoMaterno" />
+                <ScalarProperty Name="puesto" ColumnName="puesto" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="idEstatus" ColumnName="idEstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estados">
+            <EntityTypeMapping TypeName="boletasModel.estado">
+              <MappingFragment StoreEntitySet="estados">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estatus">
+            <EntityTypeMapping TypeName="boletasModel.estatu">
+              <MappingFragment StoreEntitySet="estatus">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="matrimonios">
+            <EntityTypeMapping TypeName="boletasModel.matrimonio">
+              <MappingFragment StoreEntitySet="matrimonios">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fechaMatrimonio" ColumnName="fechaMatrimonio" />
+                <ScalarProperty Name="nombreEsposo" ColumnName="nombreEsposo" />
+                <ScalarProperty Name="apellidoPaternoEsposo" ColumnName="apellidoPaternoEsposo" />
+                <ScalarProperty Name="apellidoMaternoEsposo" ColumnName="apellidoMaternoEsposo" />
+                <ScalarProperty Name="nombreEsposa" ColumnName="nombreEsposa" />
+                <ScalarProperty Name="apellidoPaternoEsposa" ColumnName="apellidoPaternoEsposa" />
+                <ScalarProperty Name="apellidoMaternoEsposa" ColumnName="apellidoMaternoEsposa" />
+                <ScalarProperty Name="parroquiaProcedencia" ColumnName="parroquiaProcedencia" />
+                <ScalarProperty Name="padrinoVelacion" ColumnName="padrinoVelacion" />
+                <ScalarProperty Name="madrinaVelacion" ColumnName="madrinaVelacion" />
+                <ScalarProperty Name="padrinoAnillos" ColumnName="padrinoAnillos" />
+                <ScalarProperty Name="madrinaAnillos" ColumnName="madrinaAnillos" />
+                <ScalarProperty Name="padrinoArras" ColumnName="padrinoArras" />
+                <ScalarProperty Name="madrinaArras" ColumnName="madrinaArras" />
+                <ScalarProperty Name="idParroco" ColumnName="idParroco" />
+                <ScalarProperty Name="idMinistro" ColumnName="idMinistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ministros">
+            <EntityTypeMapping TypeName="boletasModel.ministro">
+              <MappingFragment StoreEntitySet="ministros">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellidoPaterno" ColumnName="apellidoPaterno" />
+                <ScalarProperty Name="apellidoMaterno" ColumnName="apellidoMaterno" />
+                <ScalarProperty Name="idEstatus" ColumnName="idEstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="parrocoes">
+            <EntityTypeMapping TypeName="boletasModel.parroco">
+              <MappingFragment StoreEntitySet="parroco">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellidoPaterno" ColumnName="apellidoPaterno" />
+                <ScalarProperty Name="apellidoMaterno" ColumnName="apellidoMaterno" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="idEstatus" ColumnName="idEstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="primerasComuniones">
+            <EntityTypeMapping TypeName="boletasModel.primerasComunione">
+              <MappingFragment StoreEntitySet="primerasComuniones">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellidoPaterno" ColumnName="apellidoPaterno" />
+                <ScalarProperty Name="apellidoMaterno" ColumnName="apellidoMaterno" />
+                <ScalarProperty Name="fechaComunion" ColumnName="fechaComunion" />
+                <ScalarProperty Name="nombrePadrino" ColumnName="nombrePadrino" />
+                <ScalarProperty Name="nombreMadrina" ColumnName="nombreMadrina" />
+                <ScalarProperty Name="idCatequista" ColumnName="idCatequista" />
+                <ScalarProperty Name="idParroco" ColumnName="idParroco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="boletasModel.usuario">
+              <MappingFragment StoreEntitySet="usuarios">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="contrasenia" ColumnName="contrasenia" />
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="parroquias">
+            <EntityTypeMapping TypeName="boletasModel.parroquia">
+              <MappingFragment StoreEntitySet="parroquia">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
