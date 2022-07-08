@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="58d792906c6a46c285403f6badf4ab82" Name="Diagram1" ZoomLevel="63">
+      <Diagram DiagramId="58d792906c6a46c285403f6badf4ab82" Name="Diagram1" ZoomLevel="77">
         <EntityTypeShape EntityType="boletasModel.bautismo" Width="1.5" PointX="8.25" PointY="15.125" IsExpanded="true" />
         <EntityTypeShape EntityType="boletasModel.catequista" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="boletasModel.confirmacione" Width="1.5" PointX="5.25" PointY="20.125" IsExpanded="true" />
@@ -16,7 +16,6 @@
         <EntityTypeShape EntityType="boletasModel.parroco" Width="1.5" PointX="3" PointY="19.5" IsExpanded="true" />
         <EntityTypeShape EntityType="boletasModel.primerasComunione" Width="1.5" PointX="5.25" PointY="16" IsExpanded="true" />
         <EntityTypeShape EntityType="boletasModel.usuario" Width="1.5" PointX="5.25" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="boletasModel.parroquia" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="boletasModel.idEstadoBautismos" ManuallyRouted="false" />
         <AssociationConnector Association="boletasModel.idMinistroBautismos" ManuallyRouted="false" />
         <AssociationConnector Association="boletasModel.idCatequistaPrimerasComuniones" ManuallyRouted="false" />
@@ -30,6 +29,7 @@
         <AssociationConnector Association="boletasModel.idMinistroMatrimonios" ManuallyRouted="false" />
         <AssociationConnector Association="boletasModel.idParrocoMatrimonios" ManuallyRouted="false" />
         <AssociationConnector Association="boletasModel.idParrocoPrimerasComuniones" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="boletasModel.parroquia" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
