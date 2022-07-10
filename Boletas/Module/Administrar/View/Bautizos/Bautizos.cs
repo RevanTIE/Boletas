@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Boletas.Model;
 //using iTextSharp.text;
 //using iTextSharp.text.pdf;
 using Boletas.Module.Administrar.Model.Bautizos;
@@ -18,6 +19,9 @@ namespace Boletas.Module.Administrar.View.Bautizos
     public partial class Bautizos : Form
     {
         int poc;
+        
+        Entities context = new Entities();
+
         private string _fecha1;
 
         public string fecha1
@@ -77,13 +81,23 @@ namespace Boletas.Module.Administrar.View.Bautizos
             btnBoletaPdf.Enabled = true;
         }
 
+        public List<bautismo> BautismoPorFechas(string fecha1, string fecha2)
+        {
+            var bautismoLista = context.bautismos
+                                .Where(x => x.fechaBautismo >= DateTime.Parse(fecha1) && x.fechaBautismo <= DateTime.Parse(fecha2)).ToList();
+
+            return bautismoLista;
+        }
+
         private void Bautizos_Load(object sender, EventArgs e)
         {
             try
             {
                 RecargarFechas();
-                dataGridBautizos.DataSource = bd.SelectDataTable("Select id as Código, CONCAT(nombre,' ',apellidoPaterno,' ',apellidoMaterno) as Nombre, " +
-                    "fechaBautismo as [Fecha de Bautismo], fechaNacimiento as [Fecha de Nacimiento], nombrePadre as [Nombre del Padre], nombreMadre as [Nombre de la Madre] from bautismos where fechaBautismo between '"+fecha1+"' AND '"+fecha2+"'");
+                dataGridBautizos.DataSource = BautismoPorFechas(fecha1, fecha2);
+
+                    //bd.SelectDataTable("Select id as Código, CONCAT(nombre,' ',apellidoPaterno,' ',apellidoMaterno) as Nombre, " +
+                    //"fechaBautismo as [Fecha de Bautismo], fechaNacimiento as [Fecha de Nacimiento], nombrePadre as [Nombre del Padre], nombreMadre as [Nombre de la Madre] from bautismos where fechaBautismo between '"+fecha1+"' AND '"+fecha2+"'");
             }
             catch (Exception ex)
             {

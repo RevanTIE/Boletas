@@ -738,6 +738,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DataAccess\" />
     <Folder Include="Module\Administrar\Config\" />
     <Folder Include="Module\Catalogo\Config\" />
     <Folder Include="Module\Catalogo\Controller\" />

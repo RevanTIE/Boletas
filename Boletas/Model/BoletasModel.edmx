@@ -133,12 +133,9 @@
           <Property Name="direccion" Type="varchar" MaxLength="100" />
           <Property Name="idEstatus" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'boletas.dbo.parroquia' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="parroquia">
           <Key>
             <PropertyRef Name="id" />
-            
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
@@ -333,15 +330,9 @@ advertencia 6002: La tabla o vista 'boletas.dbo.parroquia' no tiene definida nin
           <EntitySet Name="matrimonios" EntityType="Self.matrimonios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ministros" EntityType="Self.ministros" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="parroco" EntityType="Self.parroco" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="parroquia" EntityType="Self.parroquia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="primerasComuniones" EntityType="Self.primerasComuniones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="parroquia" EntityType="Self.parroquia" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [parroquia].[id] AS [id], 
-    [parroquia].[nombre] AS [nombre], 
-    [parroquia].[direccion] AS [direccion]
-    FROM [dbo].[parroquia] AS [parroquia]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="idCatequistaPrimerasComuniones" Association="Self.idCatequistaPrimerasComuniones">
             <End Role="catequistas" EntitySet="catequistas" />
             <End Role="primerasComuniones" EntitySet="primerasComuniones" />

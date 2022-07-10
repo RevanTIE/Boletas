@@ -14,6 +14,7 @@ using System.Diagnostics;
 using Boletas.Module.Administrar.View.Bautizos;
 using Boletas.Model;
 using System.Runtime.CompilerServices;
+using System.Data.Entity;
 
 namespace Boletas.Module.Administrar.Model.Bautizos
 {
@@ -23,6 +24,18 @@ namespace Boletas.Module.Administrar.Model.Bautizos
         Entities context = new Entities();
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private bautismo _bautismoObj;
+
+        public bautismo bautismoObj
+        {
+            get => _bautismoObj;
+            set
+            {
+                _bautismoObj = value;
+                OnPropertyChanged();
+            }
+        }
 
         private string _nombre;
 
@@ -265,15 +278,15 @@ namespace Boletas.Module.Administrar.Model.Bautizos
             try
             {
 
-                using (Entities db = new Entities())
-                {
-                    bautismo ConsultaBautismo = db.bautismos
-                    .Include("ministro")
-                    .Include("estado")
-                    .Where(x => x.id == idBautizado).FirstOrDefault();
+                //using (Entities db = new Entities())
+                //{
+                bautismo ConsultaBautismo = context.bautismos //db.bautismos
+                .Include("ministro")
+                .Include("estado")
+                .Where(x => x.id == idBautizado).FirstOrDefault();
 
-                    return ConsultaBautismo;
-                }
+                return ConsultaBautismo;
+               // }
                 
             }
             catch (Exception e)
@@ -284,16 +297,18 @@ namespace Boletas.Module.Administrar.Model.Bautizos
             
         }
 
-
-
         public string generarBoletaBautismo(int idBautizado)
         {
             try {
-                //bautismo ConsultaBautismo = ConsultarBautismo(idBautizado);
+
+                var DatosBautizado = ConsultarBautismo(idBautizado);
+                //bautismo DatosBautizado = (bautismo)(from dbaut in context.bautismos
+                //                          where dbaut.id == idBautizado
+                //                          select dbaut);
 
                 parroquia = bd.SelectString("Select nombre from parroquia where id = 1").ToString();
-                nombre = bd.SelectString("Select CONCAT(nombre,' ',apellidoPaterno,' ',apellidoMaterno) as Nombre from bautismos where id = '" + idBautizado + "'").ToString();
-                fechaBautismo = Convert.ToDateTime(bd.SelectString("Select fechaBautismo from bautismos where id = '" + idBautizado+ "'").ToString());
+                nombre = bd.SelectString($"Select CONCAT(nombre,' ',apellidoPaterno,' ',apellidoMaterno) as Nombre from bautismos where id = {idBautizado}").ToString();
+                fechaBautismo = Convert.ToDateTime(bd.SelectString($"Select fechaBautismo from bautismos where id = {idBautizado}").ToString());
                 fechaNacimiento = Convert.ToDateTime(bd.SelectString("Select fechaNacimiento from bautismos where id = '" + idBautizado + "'").ToString());
                 sexo = int.Parse(bd.SelectString("Select sexo from bautismos where id = '" + idBautizado + "'"));
                 nombrePadre = bd.SelectString("Select nombrePadre from bautismos where id = '" + idBautizado + "'").ToString();
